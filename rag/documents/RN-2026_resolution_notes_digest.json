@@ -1,0 +1,47 @@
+{
+  "doc_id": "RN-2026",
+  "title": "Historical Ticket Resolution Notes Digest 2026",
+  "doc_type": "resolution_notes",
+  "version": "2026.10",
+  "effective_date": "2026-10-31",
+  "owner": "Service Desk",
+  "sites": ["NorthPlant", "EastRefinery", "SouthPlant"],
+  "records": [
+    {
+      "section": "BFP-101 cavitation and strainer blockage (INC-1001)",
+      "asset_types": ["pump"],
+      "alarm_names": ["High Vibration", "Low Suction Pressure", "High Bearing Temperature"],
+      "text": "Boiler Feed Pump 101 showed high vibration and bearing temperature following low suction pressure during load ramps. Root cause was a 60 percent blocked suction strainer. The strainer was cleaned and NPSH margin restored; vibration returned to 2.1 mm/s. Lesson: trend strainer differential pressure and clean proactively above 0.35 bar."
+    },
+    {
+      "section": "BFP-101 recirculation valve sticking (INC-1003)",
+      "asset_types": ["pump"],
+      "alarm_names": ["Low Suction Pressure"],
+      "text": "Recurring low suction pressure every three to five days on Boiler Feed Pump 101 with normal deaerator level. The minimum-flow recirculation valve FV-101 was found sticking at 20 percent open. The positioner was recalibrated. Lesson: stroke-test the recirculation valve when low suction pressure recurs at low load."
+    },
+    {
+      "section": "BFP-101 seal failure after cavitation (INC-1004)",
+      "asset_types": ["pump"],
+      "alarm_names": ["Seal Leak Detected"],
+      "text": "Mechanical seal leak on Boiler Feed Pump 101 after a cavitation episode. The seal was replaced under permit following SAF-003. Root cause: dry-running damage of the seal faces from cavitation. Lesson: address cavitation before the seal is damaged."
+    },
+    {
+      "section": "K-501 surge from slow anti-surge valve (INC-1008)",
+      "asset_types": ["compressor"],
+      "alarm_names": ["Surge Detected"],
+      "text": "Gas Compressor K-501 surged three times in 12 hours during feed gas reduction. Anti-surge valve UV-501 stroke time was 9 seconds against a 2 second specification. The actuator solenoid was replaced. Lesson: perform a stroke test per KA-0057 after repeated surge."
+    },
+    {
+      "section": "K-501 surge control margin (INC-1010)",
+      "asset_types": ["compressor"],
+      "alarm_names": ["Surge Detected", "High Discharge Temperature"],
+      "text": "Weekly surge on K-501 was traced to a surge control margin of 5 percent. The margin was increased to 10 percent and controller gains were retuned with the OEM. Drive motor M-501 overcurrent alarms during surge stopped after retuning."
+    },
+    {
+      "section": "K-502 coupling misalignment (INC-1014)",
+      "asset_types": ["compressor"],
+      "alarm_names": ["High Vibration"],
+      "text": "Recycle Compressor K-502 vibration 7.8 mm/s at 1x and 2x running speed. Laser alignment corrected coupling shims; vibration reduced to 2.4 mm/s."
+    }
+  ]
+}

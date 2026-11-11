@@ -1,0 +1,29 @@
+---
+doc_id: ALM-PHIL-001
+title: Site Alarm Philosophy (Excerpt)
+doc_type: alarm_philosophy
+version: 2.1
+effective_date: 2024-09-01
+owner: Alarm Management Team
+asset_types: []
+alarm_names: []
+sites: [NorthPlant, SouthPlant, EastRefinery]
+---
+
+# Site Alarm Philosophy (Excerpt)
+
+## Alarm Priorities
+
+Alarm priority is determined by the severity of consequence and the time available for the operator to respond. Critical alarms require response within 2 minutes; high within 5 minutes; medium within 15 minutes; low within 30 minutes. Priority 1 corresponds to critical severity.
+
+## Recurring and Chattering Alarms
+
+An alarm that activates three or more times within one minute is chattering and must be referred for rationalization. Recurring alarms that are genuine indicators of an equipment problem must not be suppressed; they must be investigated through the incident process (ESC-001).
+
+## Acknowledgement Performance
+
+The target is that 90% of alarms are acknowledged within 5 minutes. Average acknowledgement delays above 10 minutes for high-priority alarms on a unit must be reviewed by the operations superintendent.
+
+## Alarm Floods
+
+An alarm flood is defined as 10 or more alarms in 10 minutes per operator console. During a flood the operator focuses on critical and high alarms only.
