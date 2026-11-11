@@ -1,0 +1,1509 @@
+{
+  "conversation_id": "conv-60a2a2f0c5f5",
+  "trace_id": null,
+  "request_id": null,
+  "intent": "investigate_asset",
+  "intent_confidence": 0.77,
+  "entities": {
+    "asset_ref": "Boiler Feed Pump 101",
+    "asset_type": "pump",
+    "lookback_days": 90,
+    "severity": [
+      "high",
+      "critical"
+    ]
+  },
+  "status": "ok",
+  "answer_markdown": "### Investigation: recurring high-severity alarms on Boiler Feed Pump 101 (last 90 days)\n\n**Affected asset:** Boiler Feed Pump 101 (AST-BFP-101), NorthPlant / Unit 1, criticality A, part of Boiler Feedwater System [T2]\n\n**Alarm:** ALM-007143 Low Suction Pressure - severity high, process alarm, status cleared, raised 2026-11-07T00:02:10Z (value 1.13 barg vs limit 1.2) [T6]\n\n**Priority:** Score 71/100 (P2): high process alarm on criticality-A asset, 15 recurrences in the prior 30 days, status cleared. [T7]\n\n**Alarm history (last 90 days) [T4]:**\n\n- Low Suction Pressure: 42 activations, recurrence rate 0.31, avg ack delay 3.7 min\n\n- High Bearing Temperature: 39 activations, recurrence rate 0.308, avg ack delay 3.4 min\n\n- High Vibration: 38 activations, recurrence rate 0.263, avg ack delay 3.6 min\n\n- Seal Leak Detected: 7 activations, recurrence rate 0.0, avg ack delay 5.3 min\n\n**Trend:** Alarm rate is increasing (57 in the first half of the window vs 69 in the second) [T3]\n\n**Correlated alarms [T5]:**\n\n- Low Suction Pressure -> High Vibration: 21 co-occurrences, confidence 50%\n\n- High Vibration -> High Bearing Temperature: 20 co-occurrences, confidence 53%\n\n- Low Suction Pressure -> High Bearing Temperature: 20 co-occurrences, confidence 48%\n\n**Likely contributing factors** (ranked by agreeing sources):\n\n1. Blocked suction strainer reducing NPSH margin [D1] [D2] [INC-1001] [T8]\n\n2. Cavitation [D2] [D3] [INC-1004] [T5]\n\n3. Low suction vessel / deaerator level [D2] [D5] [INC-1003] [T8]\n\n4. Minimum-flow recirculation valve sticking [D5] [INC-1003] [T8]\n\n5. Lubrication degradation (oil condition / water ingress) [INC-1002]\n\n**Recommended actions:**\n\n1. Check deaerator / suction vessel level and pressure. [T8]\n\n2. Check suction strainer differential pressure; clean if blocked. [T8]\n\n3. Verify suction valve fully open and minimum-flow recirculation in service. [T8]\n\n**Applicable procedure - SOP-PUMP-004, 3. Low Suction Pressure [D2]:**\n\n- Check Deaerator D-110 level and pressure on the DCS. A low deaerator level reduces available NPSH.\n\n- Check the suction strainer differential pressure. A differential pressure above 0.35 bar indicates a blocked strainer; switch to the standby pump and clean the strainer.\n\n- Verify the suction isolation valve is fully open.\n\n- Verify the minimum-flow recirculation valve (FV-101 / FV-102) is responding. A sticking recirculation valve at low load is a known cause of recurring low suction pressure.\n\n- If suction pressure does not recover within 5 minutes, start the standby pump and stop the affected pump.\n\n**Similar historical tickets:**\n\n- [INC-1003] Recurring low suction pressure on BFP-101 (resolved, similarity 0.871) - resolution: Min-flow recirculation valve FV-101 found sticking at 20%. Positioner recalibrated.\n\n- [INC-1001] BFP-101 high vibration and bearing temperature after low suction pressure (closed, similarity 0.647) - resolution: Suction strainer found 60% blocked; cleaned strainer and restored NPSH margin. Vibration back to 2.1 mm/s.\n\n- [INC-1005] BFP-102 low suction pressure while standby pump in service (open, similarity 0.569)\n\n**Open tickets on the asset and correlated assets [T10]:**\n\n- [INC-1005] BFP-102 low suction pressure while standby pump in service - Boiler Feed Pump 102 (open, P2)",
+  "sections": {
+    "affected_asset": {
+      "text": "Boiler Feed Pump 101 (AST-BFP-101), NorthPlant / Unit 1, criticality A, part of Boiler Feedwater System [T2]",
+      "connected_assets": [
+        "AST-DEA-110",
+        "AST-BFP-102"
+      ]
+    },
+    "triggering_alarm": {
+      "text": "ALM-007143 Low Suction Pressure - severity high, process alarm, status cleared, raised 2026-11-07T00:02:10Z (value 1.13 barg vs limit 1.2) [T6]"
+    },
+    "priority": {
+      "text": "Score 71/100 (P2): high process alarm on criticality-A asset, 15 recurrences in the prior 30 days, status cleared. [T7]",
+      "factors": {
+        "severity": 28,
+        "alarm_type": 8,
+        "asset_criticality": 20,
+        "recurrence_30d": 15,
+        "status": 0
+      }
+    },
+    "alarm_history": {
+      "text": [
+        "Low Suction Pressure: 42 activations, recurrence rate 0.31, avg ack delay 3.7 min",
+        "High Bearing Temperature: 39 activations, recurrence rate 0.308, avg ack delay 3.4 min",
+        "High Vibration: 38 activations, recurrence rate 0.263, avg ack delay 3.6 min",
+        "Seal Leak Detected: 7 activations, recurrence rate 0.0, avg ack delay 5.3 min"
+      ],
+      "ref": "[T4]",
+      "totals": {
+        "alarm_count": 126,
+        "recurring_rate": 0.278,
+        "avg_ack_delay": 218.9,
+        "critical_count": 7
+      }
+    },
+    "trend": {
+      "text": "Alarm rate is increasing (57 in the first half of the window vs 69 in the second) [T3]",
+      "series": [
+        {
+          "bucket_start": "2026-08-13T00:00:00Z",
+          "alarm_count": 7
+        },
+        {
+          "bucket_start": "2026-08-20T00:00:00Z",
+          "alarm_count": 10
+        },
+        {
+          "bucket_start": "2026-08-27T00:00:00Z",
+          "alarm_count": 12
+        },
+        {
+          "bucket_start": "2026-09-03T00:00:00Z",
+          "alarm_count": 14
+        },
+        {
+          "bucket_start": "2026-09-10T00:00:00Z",
+          "alarm_count": 9
+        },
+        {
+          "bucket_start": "2026-09-17T00:00:00Z",
+          "alarm_count": 5
+        },
+        {
+          "bucket_start": "2026-09-24T00:00:00Z",
+          "alarm_count": 8
+        },
+        {
+          "bucket_start": "2026-10-01T00:00:00Z",
+          "alarm_count": 13
+        },
+        {
+          "bucket_start": "2026-10-08T00:00:00Z",
+          "alarm_count": 9
+        },
+        {
+          "bucket_start": "2026-10-15T00:00:00Z",
+          "alarm_count": 10
+        },
+        {
+          "bucket_start": "2026-10-22T00:00:00Z",
+          "alarm_count": 6
+        },
+        {
+          "bucket_start": "2026-10-29T00:00:00Z",
+          "alarm_count": 15
+        },
+        {
+          "bucket_start": "2026-11-05T00:00:00Z",
+          "alarm_count": 8
+        }
+      ]
+    },
+    "correlations": {
+      "text": [
+        "Low Suction Pressure -> High Vibration: 21 co-occurrences, confidence 50%",
+        "High Vibration -> High Bearing Temperature: 20 co-occurrences, confidence 53%",
+        "Low Suction Pressure -> High Bearing Temperature: 20 co-occurrences, confidence 48%"
+      ],
+      "ref": "[T5]",
+      "correlated_assets": []
+    },
+    "likely_causes": [
+      {
+        "cause": "Blocked suction strainer reducing NPSH margin",
+        "sources": [
+          "[D1]",
+          "[D2]",
+          "[INC-1001]",
+          "[T8]"
+        ],
+        "support": 4
+      },
+      {
+        "cause": "Cavitation",
+        "sources": [
+          "[D2]",
+          "[D3]",
+          "[INC-1004]",
+          "[T5]"
+        ],
+        "support": 4
+      },
+      {
+        "cause": "Low suction vessel / deaerator level",
+        "sources": [
+          "[D2]",
+          "[D5]",
+          "[INC-1003]",
+          "[T8]"
+        ],
+        "support": 4
+      },
+      {
+        "cause": "Minimum-flow recirculation valve sticking",
+        "sources": [
+          "[D5]",
+          "[INC-1003]",
+          "[T8]"
+        ],
+        "support": 3
+      },
+      {
+        "cause": "Lubrication degradation (oil condition / water ingress)",
+        "sources": [
+          "[INC-1002]"
+        ],
+        "support": 1
+      }
+    ],
+    "recommended_actions": [
+      {
+        "action": "Check deaerator / suction vessel level and pressure.",
+        "sources": [
+          "[T8]"
+        ],
+        "confidence": 0.8
+      },
+      {
+        "action": "Check suction strainer differential pressure; clean if blocked.",
+        "sources": [
+          "[T8]"
+        ],
+        "confidence": 0.75
+      },
+      {
+        "action": "Verify suction valve fully open and minimum-flow recirculation in service.",
+        "sources": [
+          "[T8]"
+        ],
+        "confidence": 0.7
+      }
+    ],
+    "procedure": {
+      "doc_id": "SOP-PUMP-004",
+      "section": "3. Low Suction Pressure",
+      "ref": "[D2]",
+      "steps": [
+        "Check Deaerator D-110 level and pressure on the DCS. A low deaerator level reduces available NPSH.",
+        "Check the suction strainer differential pressure. A differential pressure above 0.35 bar indicates a blocked strainer; switch to the standby pump and clean the strainer.",
+        "Verify the suction isolation valve is fully open.",
+        "Verify the minimum-flow recirculation valve (FV-101 / FV-102) is responding. A sticking recirculation valve at low load is a known cause of recurring low suction pressure.",
+        "If suction pressure does not recover within 5 minutes, start the standby pump and stop the affected pump."
+      ]
+    },
+    "similar_tickets": [
+      {
+        "ticket_id": "INC-1003",
+        "title": "Recurring low suction pressure on BFP-101",
+        "status": "resolved",
+        "similarity": 0.871,
+        "resolution": "Min-flow recirculation valve FV-101 found sticking at 20%. Positioner recalibrated.",
+        "match_reasons": [
+          "same_asset",
+          "same_alarm",
+          "same_asset_type"
+        ]
+      },
+      {
+        "ticket_id": "INC-1001",
+        "title": "BFP-101 high vibration and bearing temperature after low suction pressure",
+        "status": "closed",
+        "similarity": 0.647,
+        "resolution": "Suction strainer found 60% blocked; cleaned strainer and restored NPSH margin. Vibration back to 2.1 mm/s.",
+        "match_reasons": [
+          "same_asset",
+          "same_asset_type"
+        ]
+      },
+      {
+        "ticket_id": "INC-1005",
+        "title": "BFP-102 low suction pressure while standby pump in service",
+        "status": "open",
+        "similarity": 0.569,
+        "resolution": null,
+        "match_reasons": [
+          "same_alarm",
+          "same_asset_type"
+        ]
+      },
+      {
+        "ticket_id": "INC-1002",
+        "title": "P-101 NDE bearing temperature high",
+        "status": "closed",
+        "similarity": 0.364,
+        "resolution": "Lube oil degraded (water ingress). Oil changed, breather replaced. Recommend oil analysis monthly.",
+        "match_reasons": [
+          "same_asset",
+          "same_asset_type"
+        ]
+      },
+      {
+        "ticket_id": "INC-1004",
+        "title": "BFP-101 mechanical seal leak",
+        "status": "closed",
+        "similarity": 0.357,
+        "resolution": "Mechanical seal replaced under permit. Root cause: dry-running damage from cavitation.",
+        "match_reasons": [
+          "same_asset",
+          "same_asset_type"
+        ]
+      }
+    ],
+    "linked_open_tickets": [
+      {
+        "ticket_id": "INC-1005",
+        "title": "BFP-102 low suction pressure while standby pump in service",
+        "status": "open",
+        "asset_name": "Boiler Feed Pump 102",
+        "priority": "P2"
+      }
+    ]
+  },
+  "citations": [
+    {
+      "ref": "[D1]",
+      "doc_id": "RN-2026",
+      "title": "Historical Ticket Resolution Notes Digest 2026",
+      "section": "BFP-101 cavitation and strainer blockage (INC-1001)",
+      "chunk_id": "RN-2026#001",
+      "doc_type": "resolution_notes",
+      "source_path": "RN-2026_resolution_notes_digest.json",
+      "version": "2026.10",
+      "asset_types": [
+        "compressor",
+        "pump"
+      ],
+      "score": 1.0,
+      "snippet": "Boiler Feed Pump 101 showed high vibration and bearing temperature following low suction pressure during load ramps. Root cause was a 60 percent blocked suction strainer. The strainer was cleaned and NPSH margin restored; vibration returned to 2.1 mm/s. Lesson: trend strainer differential pressure and clean..."
+    },
+    {
+      "ref": "[D2]",
+      "doc_id": "SOP-PUMP-004",
+      "title": "Boiler Feed Pump Alarm Response and Troubleshooting Procedure",
+      "section": "3. Low Suction Pressure",
+      "chunk_id": "SOP-PUMP-004#003",
+      "doc_type": "operating_procedure",
+      "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md",
+      "version": "3.2",
+      "asset_types": [
+        "pump"
+      ],
+      "score": 1.0,
+      "snippet": "Low suction pressure is the most common initiating alarm on these pumps and frequently precedes cavitation.\n1. Check Deaerator D-110 level and pressure on the DCS. A low deaerator level reduces available NPSH.\n2. Check the suction strainer differential pressure. A differential pressure above 0.35 bar indicates a..."
+    },
+    {
+      "ref": "[D3]",
+      "doc_id": "SOP-PUMP-004",
+      "title": "Boiler Feed Pump Alarm Response and Troubleshooting Procedure",
+      "section": "4. High Vibration",
+      "chunk_id": "SOP-PUMP-004#004",
+      "doc_type": "operating_procedure",
+      "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md",
+      "version": "3.2",
+      "asset_types": [
+        "pump"
+      ],
+      "score": 1.0,
+      "snippet": "1. Confirm the reading with a portable vibration analyser at the drive-end and non-drive-end bearings.\n2. If low suction pressure was active in the preceding 15 minutes, treat the vibration as cavitation-induced and correct suction conditions first (Section 3).\n3. Vibration above 7.1 mm/s RMS (alarm) requires the..."
+    },
+    {
+      "ref": "[D4]",
+      "doc_id": "KA-0042",
+      "title": "Knowledge Article: Recognising Pump Cavitation from Alarm Patterns",
+      "section": "Symptom",
+      "chunk_id": "KA-0042#001",
+      "doc_type": "knowledge_article",
+      "source_path": "KA-0042_cavitation_from_alarm_patterns.md",
+      "version": "1.1",
+      "asset_types": [
+        "pump"
+      ],
+      "score": 0.855,
+      "snippet": "A centrifugal pump shows a repeating chain of alarms: Low Suction Pressure, followed within 1 to 10 minutes by High Vibration, followed by High Bearing Temperature. The chain recurs every few days and each alarm clears on its own."
+    },
+    {
+      "ref": "[D5]",
+      "doc_id": "RN-2026",
+      "title": "Historical Ticket Resolution Notes Digest 2026",
+      "section": "BFP-101 recirculation valve sticking (INC-1003)",
+      "chunk_id": "RN-2026#002",
+      "doc_type": "resolution_notes",
+      "source_path": "RN-2026_resolution_notes_digest.json",
+      "version": "2026.10",
+      "asset_types": [
+        "compressor",
+        "pump"
+      ],
+      "score": 0.812,
+      "snippet": "Recurring low suction pressure every three to five days on Boiler Feed Pump 101 with normal deaerator level. The minimum-flow recirculation valve FV-101 was found sticking at 20 percent open. The positioner was recalibrated. Lesson: stroke-test the recirculation valve when low suction pressure recurs at low load."
+    },
+    {
+      "ref": "[D6]",
+      "doc_id": "ESC-001",
+      "title": "Alarm Incident Classification and Escalation Procedure",
+      "section": "Incident Priority Definitions",
+      "chunk_id": "ESC-001#001",
+      "doc_type": "escalation_procedure",
+      "source_path": "ESC-001_incident_escalation_procedure.md",
+      "version": "4.0",
+      "asset_types": [
+        "pump",
+        "compressor",
+        "motor",
+        "turbine",
+        "vessel",
+        "heat_exchanger",
+        "skid",
+        "control_system"
+      ],
+      "score": 1.0,
+      "snippet": "- P1 (Critical): Safety alarm active on a criticality-A asset, loss of a duty/standby pair, or risk of unplanned shutdown. Response within 15 minutes. Notify shift superintendent and on-call engineer by phone.\n- P2 (High): High-severity alarm recurring on a criticality-A or B asset, or a critical alarm with a..."
+    },
+    {
+      "ref": "[D7]",
+      "doc_id": "ESC-001",
+      "title": "Alarm Incident Classification and Escalation Procedure",
+      "section": "When an Incident Must Be Raised",
+      "chunk_id": "ESC-001#002",
+      "doc_type": "escalation_procedure",
+      "source_path": "ESC-001_incident_escalation_procedure.md",
+      "version": "4.0",
+      "asset_types": [
+        "pump",
+        "compressor",
+        "motor",
+        "turbine",
+        "vessel",
+        "heat_exchanger",
+        "skid",
+        "control_system"
+      ],
+      "score": 0.559,
+      "snippet": "An incident ticket must be raised when any of the following is true: a high or critical alarm recurs three or more times in 30 days on the same asset; a safety alarm activates; correlated alarms appear on connected assets; or an operator recommendation requires maintenance work."
+    }
+  ],
+  "tool_evidence": {
+    "[T1]": "T-c2a1a844",
+    "[T2]": "T-5dd9a6b0",
+    "[T3]": "T-4697268f",
+    "[T4]": "T-21589042",
+    "[T5]": "T-0afb80ec",
+    "[T6]": "T-b5cc3e80",
+    "[T7]": "T-2dde3e9d",
+    "[T8]": "T-d92d2e7d",
+    "[T9]": "T-aa92bcd3",
+    "[T10]": "T-9d4a86cb"
+  },
+  "trace": {
+    "steps": [
+      {
+        "id": "P-0",
+        "kind": "plan",
+        "intent": "investigate_asset",
+        "confidence": 0.77,
+        "entities": {
+          "asset_ref": "Boiler Feed Pump 101",
+          "asset_type": "pump",
+          "lookback_days": 90,
+          "severity": [
+            "high",
+            "critical"
+          ]
+        },
+        "planned_steps": [
+          "search_assets -> get_asset_metadata",
+          "get_alarm_summary | get_alarm_trends | correlate_alarms",
+          "list_alarms (latest of top recurring alarm)",
+          "get_operator_recommendations | score_alarm_priority",
+          "search_similar_tickets | list_tickets",
+          "RAG: operating procedure + escalation",
+          "compose answer"
+        ],
+        "status": "ok",
+        "duration_ms": 0
+      },
+      {
+        "id": "T-c2a1a844",
+        "kind": "mcp",
+        "server": "alarm-management",
+        "tool": "search_assets",
+        "purpose": "Resolve asset reference 'Boiler Feed Pump 101'",
+        "arguments": {
+          "query": "Boiler Feed Pump 101",
+          "limit": 5
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.148+00:00",
+        "duration_ms": 65.9,
+        "error": null,
+        "depends_on": [],
+        "trace_id": "trace-dd098451d0d945af",
+        "source_calls": [
+          {
+            "method": "GET",
+            "path": "/assets/search",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 5.2,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "results": {
+            "count": 5,
+            "first": [
+              {
+                "asset_id": "AST-BFP-101",
+                "asset_name": "Boiler Feed Pump 101",
+                "asset_type": "pump",
+                "site": "NorthPlant",
+                "unit": "Unit 1",
+                "tag": "P-101",
+                "criticality": "A",
+                "match_score": 1.0
+              },
+              {
+                "asset_id": "AST-BFP-102",
+                "asset_name": "Boiler Feed Pump 102",
+                "asset_type": "pump",
+                "site": "NorthPlant",
+                "unit": "Unit 1",
+                "tag": "P-102",
+                "criticality": "A",
+                "match_score": 0.725
+              }
+            ]
+          },
+          "total": 6,
+          "query": "Boiler Feed Pump 101"
+        },
+        "ref": "[T1]"
+      },
+      {
+        "id": "T-5dd9a6b0",
+        "kind": "mcp",
+        "server": "alarm-management",
+        "tool": "get_asset_metadata",
+        "purpose": "Fetch asset context",
+        "arguments": {
+          "asset_id": "AST-BFP-101"
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.214+00:00",
+        "duration_ms": 73.2,
+        "error": null,
+        "depends_on": [
+          "T-c2a1a844"
+        ],
+        "trace_id": "trace-e02022ed987f490b",
+        "source_calls": [
+          {
+            "method": "GET",
+            "path": "/assets/AST-BFP-101/metadata",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 2.8,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "asset_id": "AST-BFP-101",
+          "asset_name": "Boiler Feed Pump 101",
+          "asset_type": "pump",
+          "site": "NorthPlant",
+          "unit": "Unit 1",
+          "criticality": "A",
+          "manufacturer": "Sulzer",
+          "model": "HPcp 200",
+          "parent_system": "Boiler Feedwater System",
+          "connected_assets": {
+            "count": 2,
+            "first": [
+              "AST-DEA-110",
+              "AST-BFP-102"
+            ]
+          },
+          "maintenance": {
+            "last_service_date": "2026-09-07",
+            "service_interval_days": 180,
+            "open_work_orders": 0
+          },
+          "operating_limits": {
+            "High Bearing Temperature": {
+              "threshold": 85.0,
+              "unit_of_measure": "degC",
+              "severity": "high"
+            },
+            "High Vibration": {
+              "threshold": 7.1,
+              "unit_of_measure": "mm/s",
+              "severity": "high"
+            },
+            "Low Suction Pressure": {
+              "threshold": 1.2,
+              "unit_of_measure": "barg",
+              "severity": "high"
+            },
+            "Seal Leak Detected": {
+              "threshold": 0.5,
+              "unit_of_measure": "l/h",
+              "severity": "critical"
+            },
+            "Motor Overcurrent": {
+              "threshold": 410.0,
+              "unit_of_measure": "A",
+              "severity": "medium"
+            },
+            "Low Discharge Flow": {
+              "threshold": 120.0,
+              "unit_of_measure": "m3/h",
+              "severity": "medium"
+            }
+          },
+          "tag": "P-101",
+          "install_date": "2020-01-15",
+          "status": "in_service"
+        },
+        "ref": "[T2]"
+      },
+      {
+        "id": "T-4697268f",
+        "kind": "mcp",
+        "server": "alarm-management",
+        "tool": "get_alarm_trends",
+        "purpose": "Weekly alarm trend",
+        "arguments": {
+          "asset_ids": [
+            "AST-BFP-101"
+          ],
+          "lookback_days": 90,
+          "bucket": "weekly",
+          "metrics": [
+            "alarm_count"
+          ],
+          "severity": [
+            "high",
+            "critical"
+          ]
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.290+00:00",
+        "duration_ms": 174.7,
+        "error": null,
+        "depends_on": [
+          "T-5dd9a6b0"
+        ],
+        "trace_id": "trace-784565809fed446c",
+        "source_calls": [
+          {
+            "method": "POST",
+            "path": "/alarms/trends",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 16.3,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "bucket": "weekly",
+          "series": {
+            "count": 13,
+            "first": [
+              {
+                "bucket_start": "2026-08-13T00:00:00Z",
+                "alarm_count": 7
+              },
+              {
+                "bucket_start": "2026-08-20T00:00:00Z",
+                "alarm_count": 10
+              }
+            ]
+          },
+          "time_range": {
+            "start_time": "2026-08-13T07:51:21Z",
+            "end_time": "2026-11-11T07:51:21Z"
+          }
+        },
+        "ref": "[T3]"
+      },
+      {
+        "id": "T-21589042",
+        "kind": "mcp",
+        "server": "alarm-management",
+        "tool": "get_alarm_summary",
+        "purpose": "Summarise alarms and recurrence",
+        "arguments": {
+          "asset_ids": [
+            "AST-BFP-101"
+          ],
+          "lookback_days": 90,
+          "severity": [
+            "high",
+            "critical"
+          ],
+          "group_by": [
+            "alarm_name"
+          ],
+          "kpis": [
+            "alarm_count",
+            "recurring_rate",
+            "avg_ack_delay",
+            "critical_count"
+          ]
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.288+00:00",
+        "duration_ms": 176.8,
+        "error": null,
+        "depends_on": [
+          "T-5dd9a6b0"
+        ],
+        "trace_id": "trace-0cd0a779a0764766",
+        "source_calls": [
+          {
+            "method": "POST",
+            "path": "/alarms/summary",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 36.4,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "groups": {
+            "count": 4,
+            "first": [
+              {
+                "kpis": {
+                  "alarm_count": 42,
+                  "recurring_rate": 0.31,
+                  "avg_ack_delay": 219.5,
+                  "critical_count": 0
+                },
+                "first_seen": "2026-08-15T02:06:03Z",
+                "last_seen": "2026-11-07T00:02:10Z",
+                "alarm_name": "Low Suction Pressure"
+              },
+              {
+                "kpis": {
+                  "alarm_count": 39,
+                  "recurring_rate": 0.308,
+                  "avg_ack_delay": 204.4,
+                  "critical_count": 0
+                },
+                "first_seen": "2026-08-15T02:16:58Z",
+                "last_seen": "2026-11-10T11:10:00Z",
+                "alarm_name": "High Bearing Temperature"
+              }
+            ]
+          },
+          "totals": {
+            "alarm_count": 126,
+            "recurring_rate": 0.278,
+            "avg_ack_delay": 218.9,
+            "critical_count": 7
+          },
+          "group_by": {
+            "count": 1,
+            "first": [
+              "alarm_name"
+            ]
+          },
+          "time_range": {
+            "start_time": "2026-08-13T07:51:21Z",
+            "end_time": "2026-11-11T07:51:21Z"
+          }
+        },
+        "ref": "[T4]"
+      },
+      {
+        "id": "T-0afb80ec",
+        "kind": "mcp",
+        "server": "alarm-management",
+        "tool": "correlate_alarms",
+        "purpose": "Correlate alarms (contributing factors)",
+        "arguments": {
+          "asset_ids": [
+            "AST-BFP-101"
+          ],
+          "lookback_days": 90,
+          "severity_threshold": "high",
+          "min_support": 2
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.291+00:00",
+        "duration_ms": 173.8,
+        "error": null,
+        "depends_on": [
+          "T-5dd9a6b0"
+        ],
+        "trace_id": "trace-f8b457cfcbf243bf",
+        "source_calls": [
+          {
+            "method": "POST",
+            "path": "/alarms/correlation",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 64.2,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "correlations": {
+            "count": 3,
+            "first": [
+              {
+                "leading_alarm": {
+                  "asset_id": "AST-BFP-101",
+                  "asset_name": "Boiler Feed Pump 101",
+                  "alarm_name": "Low Suction Pressure"
+                },
+                "following_alarm": {
+                  "asset_id": "AST-BFP-101",
+                  "asset_name": "Boiler Feed Pump 101",
+                  "alarm_name": "High Vibration"
+                },
+                "support": 21,
+                "confidence": 0.5,
+                "lift": 3.43,
+                "cross_asset": false
+              },
+              {
+                "leading_alarm": {
+                  "asset_id": "AST-BFP-101",
+                  "asset_name": "Boiler Feed Pump 101",
+                  "alarm_name": "High Vibration"
+                },
+                "following_alarm": {
+                  "asset_id": "AST-BFP-101",
+                  "asset_name": "Boiler Feed Pump 101",
+                  "alarm_name": "High Bearing Temperature"
+                },
+                "support": 20,
+                "confidence": 0.526,
+                "lift": 3.52,
+                "cross_asset": false
+              }
+            ]
+          },
+          "correlated_assets": {
+            "count": 0,
+            "first": []
+          },
+          "anchor_alarm_count": 126,
+          "lag_window_minutes": 15,
+          "time_range": {
+            "start_time": "2026-08-13T07:51:21Z",
+            "end_time": "2026-11-11T07:51:21Z"
+          }
+        },
+        "ref": "[T5]"
+      },
+      {
+        "id": "T-b5cc3e80",
+        "kind": "mcp",
+        "server": "alarm-management",
+        "tool": "list_alarms",
+        "purpose": "Latest 'Low Suction Pressure' activation",
+        "arguments": {
+          "asset_id": "AST-BFP-101",
+          "alarm_name": "Low Suction Pressure",
+          "page_size": 1,
+          "sort_by": "start_time",
+          "sort_order": "desc"
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.465+00:00",
+        "duration_ms": 89.1,
+        "error": null,
+        "depends_on": [
+          "T-21589042"
+        ],
+        "trace_id": "trace-06e699fd330e4203",
+        "source_calls": [
+          {
+            "method": "GET",
+            "path": "/alarms",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 4.3,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "alarms": {
+            "count": 1,
+            "first": [
+              {
+                "alarm_id": "ALM-007143",
+                "asset_id": "AST-BFP-101",
+                "asset_name": "Boiler Feed Pump 101",
+                "site": "NorthPlant",
+                "unit": "Unit 1",
+                "alarm_name": "Low Suction Pressure",
+                "alarm_type": "process",
+                "severity": "high",
+                "priority": 2,
+                "status": "cleared",
+                "start_time": "2026-11-07T00:02:10Z",
+                "end_time": "2026-11-07T00:17:32Z",
+                "ack_time": "2026-11-07T00:03:50Z",
+                "ack_delay_seconds": 100,
+                "value": 1.13,
+                "threshold": 1.2,
+                "unit_of_measure": "barg",
+                "description": "Low Suction Pressure on Boiler Feed Pump 101 (1.13 barg, limit 1.2 barg)",
+                "asset_type": "pump",
+                "tag": "P-101.LSP",
+                "duration_seconds": 922
+              }
+            ]
+          },
+          "pagination": {
+            "page": 1,
+            "page_size": 1,
+            "total": 158,
+            "total_pages": 158,
+            "has_next": true
+          },
+          "pages_fetched": 1,
+          "truncated": false
+        },
+        "ref": "[T6]"
+      },
+      {
+        "id": "T-2dde3e9d",
+        "kind": "mcp",
+        "server": "alarm-management",
+        "tool": "score_alarm_priority",
+        "purpose": "Score alarm priority",
+        "arguments": {
+          "alarm_id": "ALM-007143"
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.555+00:00",
+        "duration_ms": 100.6,
+        "error": null,
+        "depends_on": [
+          "T-b5cc3e80"
+        ],
+        "trace_id": "trace-7a9c1f80742b47f6",
+        "source_calls": [
+          {
+            "method": "POST",
+            "path": "/alarms/priority-score",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 10.9,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "alarm_id": "ALM-007143",
+          "priority_score": 71,
+          "priority_band": "P2",
+          "factors": {
+            "severity": 28,
+            "alarm_type": 8,
+            "asset_criticality": 20,
+            "recurrence_30d": 15,
+            "status": 0
+          },
+          "explanation": "high process alarm on criticality-A asset, 15 recurrences in the prior 30 days, status cleared.",
+          "recurrence_count_30d": 15
+        },
+        "ref": "[T7]"
+      },
+      {
+        "id": "T-d92d2e7d",
+        "kind": "mcp",
+        "server": "alarm-management",
+        "tool": "get_operator_recommendations",
+        "purpose": "Retrieve recommended operator actions",
+        "arguments": {
+          "alarm_id": "ALM-007143"
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.556+00:00",
+        "duration_ms": 99.3,
+        "error": null,
+        "depends_on": [
+          "T-b5cc3e80"
+        ],
+        "trace_id": "trace-666470df7e154c92",
+        "source_calls": [
+          {
+            "method": "POST",
+            "path": "/recommendations/operator-actions",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 24.2,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "alarm_id": "ALM-007143",
+          "alarm_name": "Low Suction Pressure",
+          "asset_id": "AST-BFP-101",
+          "recommendations": {
+            "count": 3,
+            "first": [
+              {
+                "step": 1,
+                "action": "Check deaerator / suction vessel level and pressure.",
+                "confidence": 0.8
+              },
+              {
+                "step": 2,
+                "action": "Check suction strainer differential pressure; clean if blocked.",
+                "confidence": 0.75
+              }
+            ]
+          },
+          "likely_causes": {
+            "count": 3,
+            "first": [
+              "Low upstream level",
+              "Blocked suction strainer"
+            ]
+          },
+          "procedure_keywords": {
+            "count": 4,
+            "first": [
+              "suction pressure",
+              "npsh"
+            ]
+          },
+          "related_alarms": {
+            "count": 2,
+            "first": [
+              {
+                "alarm_id": "ALM-007144",
+                "alarm_name": "High Vibration",
+                "severity": "high",
+                "start_time": "2026-11-07T00:06:55Z",
+                "status": "cleared"
+              },
+              {
+                "alarm_id": "ALM-007145",
+                "alarm_name": "High Bearing Temperature",
+                "severity": "high",
+                "start_time": "2026-11-07T00:14:48Z",
+                "status": "cleared"
+              }
+            ]
+          },
+          "asset_context": {
+            "asset_name": "Boiler Feed Pump 101",
+            "asset_type": "pump",
+            "site": "NorthPlant",
+            "unit": "Unit 1",
+            "criticality": "A",
+            "parent_system": "Boiler Feedwater System"
+          },
+          "historical_pattern": {
+            "occurrences_90d": 44,
+            "mean_interval_hours": 49.6,
+            "recurring": true
+          }
+        },
+        "ref": "[T8]"
+      },
+      {
+        "id": "T-aa92bcd3",
+        "kind": "mcp",
+        "server": "ticketing",
+        "tool": "search_similar_tickets",
+        "purpose": "Search similar historical tickets",
+        "arguments": {
+          "query": "Low Suction Pressure Boiler Feed Pump 101 pump Low upstream level Blocked suction strainer Recirculation valve malfunction",
+          "asset_id": "AST-BFP-101",
+          "asset_type": "pump",
+          "alarm_name": "Low Suction Pressure",
+          "limit": 5
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.656+00:00",
+        "duration_ms": 62.5,
+        "error": null,
+        "depends_on": [
+          "T-b5cc3e80",
+          "T-d92d2e7d"
+        ],
+        "trace_id": "trace-be9f4ee3dbe34ddd",
+        "source_calls": [
+          {
+            "method": "POST",
+            "path": "/tickets/search-similar",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 8.0,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "results": {
+            "count": 5,
+            "first": [
+              {
+                "ticket_id": "INC-1003",
+                "title": "Recurring low suction pressure on BFP-101",
+                "status": "resolved",
+                "priority": "P3",
+                "asset_id": "AST-BFP-101",
+                "asset_name": "Boiler Feed Pump 101",
+                "alarm_name": "Low Suction Pressure",
+                "created_at": "2026-07-21T06:40:00Z",
+                "resolution_notes": "Min-flow recirculation valve FV-101 found sticking at 20%. Positioner recalibrated.",
+                "similarity": 0.871,
+                "match_reasons": [
+                  "same_asset",
+                  "same_alarm",
+                  "same_asset_type"
+                ],
+                "description": "Low suction pressure alarm recurring every 3-5 days; deaerator level normal.",
+                "asset_type": "pump",
+                "site": "NorthPlant",
+                "alarm_ids": [],
+                "category": "alarm_incident",
+                "assignee_group": "Rotating Equipment",
+                "updated_at": "2026-07-21T06:40:00Z",
+                "tags": [],
+                "linked_documents": [],
+                "comments": []
+              },
+              {
+                "ticket_id": "INC-1001",
+                "title": "BFP-101 high vibration and bearing temperature after low suction pressure",
+                "status": "closed",
+                "priority": "P2",
+                "asset_id": "AST-BFP-101",
+                "asset_name": "Boiler Feed Pump 101",
+                "alarm_name": "High Vibration",
+                "created_at": "2026-03-14T08:20:00Z",
+                "resolution_notes": "Suction strainer found 60% blocked; cleaned strainer and restored NPSH margin. Vibration back to 2.1 mm/s.",
+                "similarity": 0.647,
+                "match_reasons": [
+                  "same_asset",
+                  "same_asset_type"
+                ],
+                "description": "Repeated high vibration on P-101 following low suction pressure alarms during load ramp.",
+                "asset_type": "pump",
+                "site": "NorthPlant",
+                "alarm_ids": [],
+                "category": "alarm_incident",
+                "assignee_group": "Rotating Equipment",
+                "updated_at": "2026-03-14T08:20:00Z",
+                "tags": [],
+                "linked_documents": [],
+                "comments": []
+              }
+            ]
+          },
+          "total_candidates": 20
+        },
+        "ref": "[T9]"
+      },
+      {
+        "id": "R-11",
+        "kind": "rag",
+        "purpose": "Retrieve troubleshooting procedure and knowledge articles",
+        "status": "ok",
+        "query": "Low Suction Pressure High Bearing Temperature High Vibration Boiler Feed Pump 101 pump troubleshooting procedure recommended actions suction pressure npsh strainer cavitation ",
+        "filters": {
+          "sites": [
+            "NorthPlant"
+          ],
+          "asset_type": "pump",
+          "alarm_names": [
+            "Low Suction Pressure",
+            "High Bearing Temperature",
+            "High Vibration"
+          ],
+          "strict_asset_type": true
+        },
+        "confidence": "high",
+        "duration_ms": 6.2,
+        "hits": [
+          {
+            "chunk_id": "RN-2026#001",
+            "doc_id": "RN-2026",
+            "score": 1.0848,
+            "ref": "[D1]"
+          },
+          {
+            "chunk_id": "SOP-PUMP-004#003",
+            "doc_id": "SOP-PUMP-004",
+            "score": 1.0762,
+            "ref": "[D2]"
+          },
+          {
+            "chunk_id": "SOP-PUMP-004#004",
+            "doc_id": "SOP-PUMP-004",
+            "score": 1.0215,
+            "ref": "[D3]"
+          },
+          {
+            "chunk_id": "KA-0042#001",
+            "doc_id": "KA-0042",
+            "score": 0.8548,
+            "ref": "[D4]"
+          },
+          {
+            "chunk_id": "RN-2026#002",
+            "doc_id": "RN-2026",
+            "score": 0.8118,
+            "ref": "[D5]"
+          }
+        ],
+        "excluded": [
+          "KA-0099#001",
+          "KA-0099#002",
+          "KA-0099#003"
+        ],
+        "warnings": [
+          "3 matching chunk(s) excluded: untrusted source or prompt-injection content"
+        ]
+      },
+      {
+        "id": "R-12",
+        "kind": "rag",
+        "purpose": "Retrieve escalation rules",
+        "status": "ok",
+        "query": "incident priority definitions escalation response notify",
+        "filters": {
+          "doc_types": [
+            "escalation_procedure"
+          ]
+        },
+        "confidence": "high",
+        "duration_ms": 2.9,
+        "hits": [
+          {
+            "chunk_id": "ESC-001#001",
+            "doc_id": "ESC-001",
+            "score": 1.0,
+            "ref": "[D6]"
+          },
+          {
+            "chunk_id": "ESC-001#002",
+            "doc_id": "ESC-001",
+            "score": 0.5587,
+            "ref": "[D7]"
+          }
+        ],
+        "excluded": [],
+        "warnings": []
+      },
+      {
+        "id": "T-9d4a86cb",
+        "kind": "mcp",
+        "server": "ticketing",
+        "tool": "list_tickets",
+        "purpose": "Open tickets on asset and correlated assets",
+        "arguments": {
+          "asset_ids": [
+            "AST-BFP-101",
+            "AST-DEA-110",
+            "AST-BFP-102"
+          ],
+          "statuses": [
+            "open",
+            "in_progress"
+          ]
+        },
+        "status": "ok",
+        "started_at": "2026-11-11T07:51:21.728+00:00",
+        "duration_ms": 52.9,
+        "error": null,
+        "depends_on": [
+          "T-0afb80ec"
+        ],
+        "trace_id": "trace-e7031afec6094ae0",
+        "source_calls": [
+          {
+            "method": "GET",
+            "path": "/tickets",
+            "status_code": 200,
+            "attempts": 1,
+            "retry_count": 0,
+            "duration_ms": 3.0,
+            "retry_reasons": []
+          }
+        ],
+        "retry_count": 0,
+        "api_status_codes": [
+          200
+        ],
+        "output_preview": {
+          "tickets": {
+            "count": 1,
+            "first": [
+              {
+                "ticket_id": "INC-1005",
+                "title": "BFP-102 low suction pressure while standby pump in service",
+                "status": "open",
+                "priority": "P2",
+                "asset_id": "AST-BFP-102",
+                "asset_name": "Boiler Feed Pump 102",
+                "alarm_name": "Low Suction Pressure",
+                "created_at": "2026-11-09T10:15:00Z",
+                "resolution_notes": null,
+                "description": "Low suction pressure on P-102 when started as standby for P-101.",
+                "asset_type": "pump",
+                "site": "NorthPlant",
+                "alarm_ids": [],
+                "category": "alarm_incident",
+                "assignee_group": "Rotating Equipment",
+                "updated_at": "2026-11-09T10:15:00Z",
+                "tags": [],
+                "linked_documents": [],
+                "comments": []
+              }
+            ]
+          },
+          "total": 1,
+          "pages_fetched": 1
+        },
+        "ref": "[T10]"
+      }
+    ],
+    "total_ms": 637.7,
+    "llm": null
+  },
+  "ticket_draft": null,
+  "similar_tickets": [
+    {
+      "ticket_id": "INC-1003",
+      "title": "Recurring low suction pressure on BFP-101",
+      "status": "resolved",
+      "priority": "P3",
+      "asset_id": "AST-BFP-101",
+      "asset_name": "Boiler Feed Pump 101",
+      "alarm_name": "Low Suction Pressure",
+      "created_at": "2026-07-21T06:40:00Z",
+      "resolution_notes": "Min-flow recirculation valve FV-101 found sticking at 20%. Positioner recalibrated.",
+      "similarity": 0.871,
+      "match_reasons": [
+        "same_asset",
+        "same_alarm",
+        "same_asset_type"
+      ],
+      "description": "Low suction pressure alarm recurring every 3-5 days; deaerator level normal.",
+      "asset_type": "pump",
+      "site": "NorthPlant",
+      "alarm_ids": [],
+      "category": "alarm_incident",
+      "assignee_group": "Rotating Equipment",
+      "updated_at": "2026-07-21T06:40:00Z",
+      "tags": [],
+      "linked_documents": [],
+      "comments": []
+    },
+    {
+      "ticket_id": "INC-1001",
+      "title": "BFP-101 high vibration and bearing temperature after low suction pressure",
+      "status": "closed",
+      "priority": "P2",
+      "asset_id": "AST-BFP-101",
+      "asset_name": "Boiler Feed Pump 101",
+      "alarm_name": "High Vibration",
+      "created_at": "2026-03-14T08:20:00Z",
+      "resolution_notes": "Suction strainer found 60% blocked; cleaned strainer and restored NPSH margin. Vibration back to 2.1 mm/s.",
+      "similarity": 0.647,
+      "match_reasons": [
+        "same_asset",
+        "same_asset_type"
+      ],
+      "description": "Repeated high vibration on P-101 following low suction pressure alarms during load ramp.",
+      "asset_type": "pump",
+      "site": "NorthPlant",
+      "alarm_ids": [],
+      "category": "alarm_incident",
+      "assignee_group": "Rotating Equipment",
+      "updated_at": "2026-03-14T08:20:00Z",
+      "tags": [],
+      "linked_documents": [],
+      "comments": []
+    },
+    {
+      "ticket_id": "INC-1005",
+      "title": "BFP-102 low suction pressure while standby pump in service",
+      "status": "open",
+      "priority": "P2",
+      "asset_id": "AST-BFP-102",
+      "asset_name": "Boiler Feed Pump 102",
+      "alarm_name": "Low Suction Pressure",
+      "created_at": "2026-11-09T10:15:00Z",
+      "resolution_notes": null,
+      "similarity": 0.569,
+      "match_reasons": [
+        "same_alarm",
+        "same_asset_type"
+      ],
+      "description": "Low suction pressure on P-102 when started as standby for P-101.",
+      "asset_type": "pump",
+      "site": "NorthPlant",
+      "alarm_ids": [],
+      "category": "alarm_incident",
+      "assignee_group": "Rotating Equipment",
+      "updated_at": "2026-11-09T10:15:00Z",
+      "tags": [],
+      "linked_documents": [],
+      "comments": []
+    },
+    {
+      "ticket_id": "INC-1002",
+      "title": "P-101 NDE bearing temperature high",
+      "status": "closed",
+      "priority": "P2",
+      "asset_id": "AST-BFP-101",
+      "asset_name": "Boiler Feed Pump 101",
+      "alarm_name": "High Bearing Temperature",
+      "created_at": "2026-05-02T13:05:00Z",
+      "resolution_notes": "Lube oil degraded (water ingress). Oil changed, breather replaced. Recommend oil analysis monthly.",
+      "similarity": 0.364,
+      "match_reasons": [
+        "same_asset",
+        "same_asset_type"
+      ],
+      "description": "NDE bearing reached 91 degC with concurrent vibration rise.",
+      "asset_type": "pump",
+      "site": "NorthPlant",
+      "alarm_ids": [],
+      "category": "alarm_incident",
+      "assignee_group": "Rotating Equipment",
+      "updated_at": "2026-05-02T13:05:00Z",
+      "tags": [],
+      "linked_documents": [],
+      "comments": []
+    },
+    {
+      "ticket_id": "INC-1004",
+      "title": "BFP-101 mechanical seal leak",
+      "status": "closed",
+      "priority": "P1",
+      "asset_id": "AST-BFP-101",
+      "asset_name": "Boiler Feed Pump 101",
+      "alarm_name": "Seal Leak Detected",
+      "created_at": "2026-08-30T22:10:00Z",
+      "resolution_notes": "Mechanical seal replaced under permit. Root cause: dry-running damage from cavitation.",
+      "similarity": 0.357,
+      "match_reasons": [
+        "same_asset",
+        "same_asset_type"
+      ],
+      "description": "Seal leak detection after a cavitation episode. Hot feedwater dripping at seal gland.",
+      "asset_type": "pump",
+      "site": "NorthPlant",
+      "alarm_ids": [],
+      "category": "alarm_incident",
+      "assignee_group": "Rotating Equipment",
+      "updated_at": "2026-08-30T22:10:00Z",
+      "tags": [],
+      "linked_documents": [],
+      "comments": []
+    }
+  ],
+  "linked_tickets": [
+    {
+      "ticket_id": "INC-1005",
+      "title": "BFP-102 low suction pressure while standby pump in service",
+      "status": "open",
+      "priority": "P2",
+      "asset_id": "AST-BFP-102",
+      "asset_name": "Boiler Feed Pump 102",
+      "alarm_name": "Low Suction Pressure",
+      "created_at": "2026-11-09T10:15:00Z",
+      "resolution_notes": null,
+      "description": "Low suction pressure on P-102 when started as standby for P-101.",
+      "asset_type": "pump",
+      "site": "NorthPlant",
+      "alarm_ids": [],
+      "category": "alarm_incident",
+      "assignee_group": "Rotating Equipment",
+      "updated_at": "2026-11-09T10:15:00Z",
+      "tags": [],
+      "linked_documents": [],
+      "comments": []
+    }
+  ],
+  "requires_confirmation": false,
+  "warnings": [
+    "3 matching chunk(s) excluded: untrusted source or prompt-injection content"
+  ],
+  "suggestions": [
+    "Prepare an incident for this alarm",
+    "Find similar historical tickets for this alarm",
+    "Show open tickets linked to correlated assets"
+  ],
+  "context": {
+    "asset": {
+      "asset_id": "AST-BFP-101",
+      "asset_name": "Boiler Feed Pump 101",
+      "site": "NorthPlant"
+    },
+    "alarm": {
+      "alarm_id": "ALM-007143",
+      "alarm_name": "Low Suction Pressure",
+      "severity": "high",
+      "status": "cleared"
+    },
+    "draft_id": null,
+    "correlated_assets": []
+  }
+}

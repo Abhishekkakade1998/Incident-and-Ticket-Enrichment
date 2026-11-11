@@ -1,0 +1,1064 @@
+[
+  {
+    "query": "Low Suction Pressure High Vibration Boiler Feed Pump 101 troubleshooting procedure",
+    "filters": {
+      "asset_type": "pump",
+      "alarm_names": [
+        "Low Suction Pressure",
+        "High Vibration"
+      ],
+      "strict_asset_type": true
+    },
+    "confidence": "high",
+    "warnings": [
+      "3 matching chunk(s) excluded: untrusted source or prompt-injection content"
+    ],
+    "excluded_chunk_ids": [
+      "KA-0099#001",
+      "KA-0099#002",
+      "KA-0099#003"
+    ],
+    "hits": [
+      {
+        "chunk_id": "SOP-PUMP-004#004",
+        "doc_id": "SOP-PUMP-004",
+        "section": "4. High Vibration",
+        "score": 1.1423,
+        "bm25": 7.871,
+        "vector": 0.492,
+        "coverage": 0.909,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1,
+          "section_match": 0.12
+        },
+        "metadata": {
+          "doc_type": "operating_procedure",
+          "version": "3.2",
+          "asset_types": [
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Motor Overcurrent",
+            "Low Discharge Flow"
+          ],
+          "trust": "verified",
+          "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md"
+        }
+      },
+      {
+        "chunk_id": "SOP-PUMP-004#003",
+        "doc_id": "SOP-PUMP-004",
+        "section": "3. Low Suction Pressure",
+        "score": 1.138,
+        "bm25": 9.194,
+        "vector": 0.534,
+        "coverage": 0.818,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1,
+          "section_match": 0.12
+        },
+        "metadata": {
+          "doc_type": "operating_procedure",
+          "version": "3.2",
+          "asset_types": [
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Motor Overcurrent",
+            "Low Discharge Flow"
+          ],
+          "trust": "verified",
+          "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md"
+        }
+      },
+      {
+        "chunk_id": "RN-2026#001",
+        "doc_id": "RN-2026",
+        "section": "BFP-101 cavitation and strainer blockage (INC-1001)",
+        "score": 1.0846,
+        "bm25": 14.37,
+        "vector": 0.403,
+        "coverage": 0.818,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1
+        },
+        "metadata": {
+          "doc_type": "resolution_notes",
+          "version": "2026.10",
+          "asset_types": [
+            "compressor",
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Discharge Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Surge Detected"
+          ],
+          "trust": "verified",
+          "source_path": "RN-2026_resolution_notes_digest.json"
+        }
+      },
+      {
+        "chunk_id": "RN-2026#002",
+        "doc_id": "RN-2026",
+        "section": "BFP-101 recirculation valve sticking (INC-1003)",
+        "score": 0.9915,
+        "bm25": 13.297,
+        "vector": 0.394,
+        "coverage": 0.636,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1
+        },
+        "metadata": {
+          "doc_type": "resolution_notes",
+          "version": "2026.10",
+          "asset_types": [
+            "compressor",
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Discharge Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Surge Detected"
+          ],
+          "trust": "verified",
+          "source_path": "RN-2026_resolution_notes_digest.json"
+        }
+      },
+      {
+        "chunk_id": "KA-0042#001",
+        "doc_id": "KA-0042",
+        "section": "Symptom",
+        "score": 0.8854,
+        "bm25": 8.953,
+        "vector": 0.363,
+        "coverage": 0.545,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1
+        },
+        "metadata": {
+          "doc_type": "knowledge_article",
+          "version": "1.1",
+          "asset_types": [
+            "pump"
+          ],
+          "alarm_names": [
+            "Low Suction Pressure",
+            "High Vibration",
+            "High Bearing Temperature",
+            "Seal Leak Detected"
+          ],
+          "trust": "verified",
+          "source_path": "KA-0042_cavitation_from_alarm_patterns.md"
+        }
+      }
+    ],
+    "citations": [
+      {
+        "ref": "[D1]",
+        "doc_id": "SOP-PUMP-004",
+        "title": "Boiler Feed Pump Alarm Response and Troubleshooting Procedure",
+        "section": "4. High Vibration",
+        "chunk_id": "SOP-PUMP-004#004",
+        "doc_type": "operating_procedure",
+        "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md",
+        "version": "3.2",
+        "asset_types": [
+          "pump"
+        ],
+        "score": 1.0,
+        "snippet": "1. Confirm the reading with a portable vibration analyser at the drive-end and non-drive-end bearings.\n2. If low suction pressure was active in the preceding 15 minutes, treat the vibration as cavitation-induced and correct suction conditions first (Section 3).\n3. Vibration above 7.1 mm/s RMS (alarm) requires the..."
+      },
+      {
+        "ref": "[D2]",
+        "doc_id": "SOP-PUMP-004",
+        "title": "Boiler Feed Pump Alarm Response and Troubleshooting Procedure",
+        "section": "3. Low Suction Pressure",
+        "chunk_id": "SOP-PUMP-004#003",
+        "doc_type": "operating_procedure",
+        "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md",
+        "version": "3.2",
+        "asset_types": [
+          "pump"
+        ],
+        "score": 1.0,
+        "snippet": "Low suction pressure is the most common initiating alarm on these pumps and frequently precedes cavitation.\n1. Check Deaerator D-110 level and pressure on the DCS. A low deaerator level reduces available NPSH.\n2. Check the suction strainer differential pressure. A differential pressure above 0.35 bar indicates a..."
+      },
+      {
+        "ref": "[D3]",
+        "doc_id": "RN-2026",
+        "title": "Historical Ticket Resolution Notes Digest 2026",
+        "section": "BFP-101 cavitation and strainer blockage (INC-1001)",
+        "chunk_id": "RN-2026#001",
+        "doc_type": "resolution_notes",
+        "source_path": "RN-2026_resolution_notes_digest.json",
+        "version": "2026.10",
+        "asset_types": [
+          "compressor",
+          "pump"
+        ],
+        "score": 1.0,
+        "snippet": "Boiler Feed Pump 101 showed high vibration and bearing temperature following low suction pressure during load ramps. Root cause was a 60 percent blocked suction strainer. The strainer was cleaned and NPSH margin restored; vibration returned to 2.1 mm/s. Lesson: trend strainer differential pressure and clean..."
+      },
+      {
+        "ref": "[D4]",
+        "doc_id": "RN-2026",
+        "title": "Historical Ticket Resolution Notes Digest 2026",
+        "section": "BFP-101 recirculation valve sticking (INC-1003)",
+        "chunk_id": "RN-2026#002",
+        "doc_type": "resolution_notes",
+        "source_path": "RN-2026_resolution_notes_digest.json",
+        "version": "2026.10",
+        "asset_types": [
+          "compressor",
+          "pump"
+        ],
+        "score": 0.992,
+        "snippet": "Recurring low suction pressure every three to five days on Boiler Feed Pump 101 with normal deaerator level. The minimum-flow recirculation valve FV-101 was found sticking at 20 percent open. The positioner was recalibrated. Lesson: stroke-test the recirculation valve when low suction pressure recurs at low load."
+      },
+      {
+        "ref": "[D5]",
+        "doc_id": "KA-0042",
+        "title": "Knowledge Article: Recognising Pump Cavitation from Alarm Patterns",
+        "section": "Symptom",
+        "chunk_id": "KA-0042#001",
+        "doc_type": "knowledge_article",
+        "source_path": "KA-0042_cavitation_from_alarm_patterns.md",
+        "version": "1.1",
+        "asset_types": [
+          "pump"
+        ],
+        "score": 0.885,
+        "snippet": "A centrifugal pump shows a repeating chain of alarms: Low Suction Pressure, followed within 1 to 10 minutes by High Vibration, followed by High Bearing Temperature. The chain recurs every few days and each alarm clears on its own."
+      }
+    ]
+  },
+  {
+    "query": "Surge Detected Gas Compressor K-501 immediate response",
+    "filters": {
+      "asset_type": "compressor",
+      "alarm_names": [
+        "Surge Detected"
+      ],
+      "strict_asset_type": true
+    },
+    "confidence": "high",
+    "warnings": [],
+    "excluded_chunk_ids": [],
+    "hits": [
+      {
+        "chunk_id": "TG-CMP-012#002",
+        "doc_id": "TG-CMP-012",
+        "section": "Immediate Response to Surge Detected",
+        "score": 1.2083,
+        "bm25": 10.831,
+        "vector": 0.316,
+        "coverage": 0.875,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1,
+          "section_match": 0.12
+        },
+        "metadata": {
+          "doc_type": "troubleshooting_guide",
+          "version": "2.0",
+          "asset_types": [
+            "compressor",
+            "motor"
+          ],
+          "alarm_names": [
+            "Surge Detected",
+            "High Discharge Temperature",
+            "High Vibration",
+            "Low Lube Oil Pressure",
+            "High Interstage Pressure",
+            "Motor Overcurrent"
+          ],
+          "trust": "verified",
+          "source_path": "TG-CMP-012_compressor_surge_troubleshooting.md"
+        }
+      },
+      {
+        "chunk_id": "RN-2026#004",
+        "doc_id": "RN-2026",
+        "section": "K-501 surge from slow anti-surge valve (INC-1008)",
+        "score": 1.0268,
+        "bm25": 12.668,
+        "vector": 0.34,
+        "coverage": 0.625,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1
+        },
+        "metadata": {
+          "doc_type": "resolution_notes",
+          "version": "2026.10",
+          "asset_types": [
+            "compressor",
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Discharge Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Surge Detected"
+          ],
+          "trust": "verified",
+          "source_path": "RN-2026_resolution_notes_digest.json"
+        }
+      },
+      {
+        "chunk_id": "TG-CMP-012#001",
+        "doc_id": "TG-CMP-012",
+        "section": "Overview",
+        "score": 1.0257,
+        "bm25": 12.599,
+        "vector": 0.417,
+        "coverage": 0.625,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1
+        },
+        "metadata": {
+          "doc_type": "troubleshooting_guide",
+          "version": "2.0",
+          "asset_types": [
+            "compressor",
+            "motor"
+          ],
+          "alarm_names": [
+            "Surge Detected",
+            "High Discharge Temperature",
+            "High Vibration",
+            "Low Lube Oil Pressure",
+            "High Interstage Pressure",
+            "Motor Overcurrent"
+          ],
+          "trust": "verified",
+          "source_path": "TG-CMP-012_compressor_surge_troubleshooting.md"
+        }
+      },
+      {
+        "chunk_id": "RN-2026#005",
+        "doc_id": "RN-2026",
+        "section": "K-501 surge control margin (INC-1010)",
+        "score": 0.8466,
+        "bm25": 8.757,
+        "vector": 0.217,
+        "coverage": 0.375,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1
+        },
+        "metadata": {
+          "doc_type": "resolution_notes",
+          "version": "2026.10",
+          "asset_types": [
+            "compressor",
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Discharge Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Surge Detected"
+          ],
+          "trust": "verified",
+          "source_path": "RN-2026_resolution_notes_digest.json"
+        }
+      },
+      {
+        "chunk_id": "KA-0057#001",
+        "doc_id": "KA-0057",
+        "section": "When to Perform",
+        "score": 0.7191,
+        "bm25": 5.238,
+        "vector": 0.115,
+        "coverage": 0.25,
+        "boosts": {
+          "asset_type": 0.08,
+          "alarm_name": 0.1
+        },
+        "metadata": {
+          "doc_type": "knowledge_article",
+          "version": "1.0",
+          "asset_types": [
+            "compressor"
+          ],
+          "alarm_names": [
+            "Surge Detected"
+          ],
+          "trust": "verified",
+          "source_path": "KA-0057_anti_surge_valve_stroke_test.md"
+        }
+      }
+    ],
+    "citations": [
+      {
+        "ref": "[D1]",
+        "doc_id": "TG-CMP-012",
+        "title": "Centrifugal Compressor Surge and High Discharge Temperature Troubleshooting Guide",
+        "section": "Immediate Response to Surge Detected",
+        "chunk_id": "TG-CMP-012#002",
+        "doc_type": "troubleshooting_guide",
+        "source_path": "TG-CMP-012_compressor_surge_troubleshooting.md",
+        "version": "2.0",
+        "asset_types": [
+          "compressor",
+          "motor"
+        ],
+        "score": 1.0,
+        "snippet": "1. Confirm the anti-surge controller is in AUTO and the recycle (anti-surge) valve is opening. The valve must reach 90% open within 2 seconds of a surge signal.\n2. If the controller is in MANUAL, return it to AUTO or open the recycle valve manually to at least 40%.\n3. Reduce discharge pressure set point or increase..."
+      },
+      {
+        "ref": "[D2]",
+        "doc_id": "RN-2026",
+        "title": "Historical Ticket Resolution Notes Digest 2026",
+        "section": "K-501 surge from slow anti-surge valve (INC-1008)",
+        "chunk_id": "RN-2026#004",
+        "doc_type": "resolution_notes",
+        "source_path": "RN-2026_resolution_notes_digest.json",
+        "version": "2026.10",
+        "asset_types": [
+          "compressor",
+          "pump"
+        ],
+        "score": 1.0,
+        "snippet": "Gas Compressor K-501 surged three times in 12 hours during feed gas reduction. Anti-surge valve UV-501 stroke time was 9 seconds against a 2 second specification. The actuator solenoid was replaced. Lesson: perform a stroke test per KA-0057 after repeated surge."
+      },
+      {
+        "ref": "[D3]",
+        "doc_id": "TG-CMP-012",
+        "title": "Centrifugal Compressor Surge and High Discharge Temperature Troubleshooting Guide",
+        "section": "Overview",
+        "chunk_id": "TG-CMP-012#001",
+        "doc_type": "troubleshooting_guide",
+        "source_path": "TG-CMP-012_compressor_surge_troubleshooting.md",
+        "version": "2.0",
+        "asset_types": [
+          "compressor",
+          "motor"
+        ],
+        "score": 1.0,
+        "snippet": "Surge is a flow reversal through a centrifugal compressor that occurs when flow drops below the surge line at the current head. Repeated surge damages thrust bearings, seals and impellers, and overloads the drive motor. This guide applies to Gas Compressor K-501, Recycle Compressor K-502 and Instrument Air..."
+      },
+      {
+        "ref": "[D4]",
+        "doc_id": "RN-2026",
+        "title": "Historical Ticket Resolution Notes Digest 2026",
+        "section": "K-501 surge control margin (INC-1010)",
+        "chunk_id": "RN-2026#005",
+        "doc_type": "resolution_notes",
+        "source_path": "RN-2026_resolution_notes_digest.json",
+        "version": "2026.10",
+        "asset_types": [
+          "compressor",
+          "pump"
+        ],
+        "score": 0.847,
+        "snippet": "Weekly surge on K-501 was traced to a surge control margin of 5 percent. The margin was increased to 10 percent and controller gains were retuned with the OEM. Drive motor M-501 overcurrent alarms during surge stopped after retuning."
+      },
+      {
+        "ref": "[D5]",
+        "doc_id": "KA-0057",
+        "title": "Knowledge Article: Anti-Surge Valve Stroke Test",
+        "section": "When to Perform",
+        "chunk_id": "KA-0057#001",
+        "doc_type": "knowledge_article",
+        "source_path": "KA-0057_anti_surge_valve_stroke_test.md",
+        "version": "1.0",
+        "asset_types": [
+          "compressor"
+        ],
+        "score": 0.719,
+        "snippet": "Perform a stroke test whenever Surge Detected recurs more than twice in a week, after any actuator maintenance, and at every planned shutdown."
+      }
+    ]
+  },
+  {
+    "query": "incident priority definitions escalation response notify",
+    "filters": {
+      "doc_types": [
+        "escalation_procedure"
+      ]
+    },
+    "confidence": "high",
+    "warnings": [],
+    "excluded_chunk_ids": [],
+    "hits": [
+      {
+        "chunk_id": "ESC-001#001",
+        "doc_id": "ESC-001",
+        "section": "Incident Priority Definitions",
+        "score": 1.0,
+        "bm25": 12.654,
+        "vector": 0.309,
+        "coverage": 1.0,
+        "boosts": {},
+        "metadata": {
+          "doc_type": "escalation_procedure",
+          "version": "4.0",
+          "asset_types": [
+            "pump",
+            "compressor",
+            "motor",
+            "turbine",
+            "vessel",
+            "heat_exchanger",
+            "skid",
+            "control_system"
+          ],
+          "alarm_names": [],
+          "trust": "verified",
+          "source_path": "ESC-001_incident_escalation_procedure.md"
+        }
+      },
+      {
+        "chunk_id": "ESC-001#002",
+        "doc_id": "ESC-001",
+        "section": "When an Incident Must Be Raised",
+        "score": 0.5587,
+        "bm25": 2.012,
+        "vector": 0.206,
+        "coverage": 0.333,
+        "boosts": {},
+        "metadata": {
+          "doc_type": "escalation_procedure",
+          "version": "4.0",
+          "asset_types": [
+            "pump",
+            "compressor",
+            "motor",
+            "turbine",
+            "vessel",
+            "heat_exchanger",
+            "skid",
+            "control_system"
+          ],
+          "alarm_names": [],
+          "trust": "verified",
+          "source_path": "ESC-001_incident_escalation_procedure.md"
+        }
+      }
+    ],
+    "citations": [
+      {
+        "ref": "[D1]",
+        "doc_id": "ESC-001",
+        "title": "Alarm Incident Classification and Escalation Procedure",
+        "section": "Incident Priority Definitions",
+        "chunk_id": "ESC-001#001",
+        "doc_type": "escalation_procedure",
+        "source_path": "ESC-001_incident_escalation_procedure.md",
+        "version": "4.0",
+        "asset_types": [
+          "pump",
+          "compressor",
+          "motor",
+          "turbine",
+          "vessel",
+          "heat_exchanger",
+          "skid",
+          "control_system"
+        ],
+        "score": 1.0,
+        "snippet": "- P1 (Critical): Safety alarm active on a criticality-A asset, loss of a duty/standby pair, or risk of unplanned shutdown. Response within 15 minutes. Notify shift superintendent and on-call engineer by phone.\n- P2 (High): High-severity alarm recurring on a criticality-A or B asset, or a critical alarm with a..."
+      },
+      {
+        "ref": "[D2]",
+        "doc_id": "ESC-001",
+        "title": "Alarm Incident Classification and Escalation Procedure",
+        "section": "When an Incident Must Be Raised",
+        "chunk_id": "ESC-001#002",
+        "doc_type": "escalation_procedure",
+        "source_path": "ESC-001_incident_escalation_procedure.md",
+        "version": "4.0",
+        "asset_types": [
+          "pump",
+          "compressor",
+          "motor",
+          "turbine",
+          "vessel",
+          "heat_exchanger",
+          "skid",
+          "control_system"
+        ],
+        "score": 0.559,
+        "snippet": "An incident ticket must be raised when any of the following is true: a high or critical alarm recurs three or more times in 30 days on the same asset; a safety alarm activates; correlated alarms appear on connected assets; or an operator recommendation requires maintenance work."
+      }
+    ]
+  },
+  {
+    "query": "bearing temperature tips overgreasing",
+    "filters": {
+      "asset_type": "pump"
+    },
+    "confidence": "high",
+    "warnings": [
+      "3 matching chunk(s) excluded: untrusted source or prompt-injection content"
+    ],
+    "excluded_chunk_ids": [
+      "KA-0099#001",
+      "KA-0099#002",
+      "KA-0099#003"
+    ],
+    "hits": [
+      {
+        "chunk_id": "SOP-PUMP-004#005",
+        "doc_id": "SOP-PUMP-004",
+        "section": "5. High Bearing Temperature",
+        "score": 0.7794,
+        "bm25": 5.188,
+        "vector": 0.404,
+        "coverage": 0.5,
+        "boosts": {
+          "asset_type": 0.08
+        },
+        "metadata": {
+          "doc_type": "operating_procedure",
+          "version": "3.2",
+          "asset_types": [
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Motor Overcurrent",
+            "Low Discharge Flow"
+          ],
+          "trust": "verified",
+          "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md"
+        }
+      },
+      {
+        "chunk_id": "KA-0042#001",
+        "doc_id": "KA-0042",
+        "section": "Symptom",
+        "score": 0.7264,
+        "bm25": 3.508,
+        "vector": 0.186,
+        "coverage": 0.5,
+        "boosts": {
+          "asset_type": 0.08
+        },
+        "metadata": {
+          "doc_type": "knowledge_article",
+          "version": "1.1",
+          "asset_types": [
+            "pump"
+          ],
+          "alarm_names": [
+            "Low Suction Pressure",
+            "High Vibration",
+            "High Bearing Temperature",
+            "Seal Leak Detected"
+          ],
+          "trust": "verified",
+          "source_path": "KA-0042_cavitation_from_alarm_patterns.md"
+        }
+      },
+      {
+        "chunk_id": "SOP-PUMP-004#007",
+        "doc_id": "SOP-PUMP-004",
+        "section": "7. Recurring Alarm Pattern: Cavitation Sequence",
+        "score": 0.7049,
+        "bm25": 2.887,
+        "vector": 0.156,
+        "coverage": 0.5,
+        "boosts": {
+          "asset_type": 0.08
+        },
+        "metadata": {
+          "doc_type": "operating_procedure",
+          "version": "3.2",
+          "asset_types": [
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Motor Overcurrent",
+            "Low Discharge Flow"
+          ],
+          "trust": "verified",
+          "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md"
+        }
+      },
+      {
+        "chunk_id": "RN-2026#001",
+        "doc_id": "RN-2026",
+        "section": "BFP-101 cavitation and strainer blockage (INC-1001)",
+        "score": 0.694,
+        "bm25": 2.744,
+        "vector": 0.124,
+        "coverage": 0.5,
+        "boosts": {
+          "asset_type": 0.08
+        },
+        "metadata": {
+          "doc_type": "resolution_notes",
+          "version": "2026.10",
+          "asset_types": [
+            "compressor",
+            "pump"
+          ],
+          "alarm_names": [
+            "High Bearing Temperature",
+            "High Discharge Temperature",
+            "High Vibration",
+            "Low Suction Pressure",
+            "Seal Leak Detected",
+            "Surge Detected"
+          ],
+          "trust": "verified",
+          "source_path": "RN-2026_resolution_notes_digest.json"
+        }
+      },
+      {
+        "chunk_id": "TG-MTR-007#001",
+        "doc_id": "TG-MTR-007",
+        "section": "Motor Overcurrent",
+        "score": 0.6391,
+        "bm25": 1.074,
+        "vector": 0.104,
+        "coverage": 0.5,
+        "boosts": {
+          "asset_type": 0.08
+        },
+        "metadata": {
+          "doc_type": "troubleshooting_guide",
+          "version": "1.4",
+          "asset_types": [
+            "motor",
+            "pump",
+            "compressor"
+          ],
+          "alarm_names": [
+            "Motor Overcurrent",
+            "High Winding Temperature",
+            "Motor Trip"
+          ],
+          "trust": "verified",
+          "source_path": "TG-MTR-007_motor_overcurrent_troubleshooting.md"
+        }
+      }
+    ],
+    "citations": [
+      {
+        "ref": "[D1]",
+        "doc_id": "SOP-PUMP-004",
+        "title": "Boiler Feed Pump Alarm Response and Troubleshooting Procedure",
+        "section": "5. High Bearing Temperature",
+        "chunk_id": "SOP-PUMP-004#005",
+        "doc_type": "operating_procedure",
+        "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md",
+        "version": "3.2",
+        "asset_types": [
+          "pump"
+        ],
+        "score": 0.779,
+        "snippet": "1. Verify the temperature on the redundant RTD or a local thermometer.\n2. Check lube oil level in the bearing housing sight glass and the oil colour. Milky oil indicates water ingress.\n3. Check cooling water flow to the bearing housing.\n4. A rise of more than 2 degC per minute, or a temperature above 95 degC,..."
+      },
+      {
+        "ref": "[D2]",
+        "doc_id": "KA-0042",
+        "title": "Knowledge Article: Recognising Pump Cavitation from Alarm Patterns",
+        "section": "Symptom",
+        "chunk_id": "KA-0042#001",
+        "doc_type": "knowledge_article",
+        "source_path": "KA-0042_cavitation_from_alarm_patterns.md",
+        "version": "1.1",
+        "asset_types": [
+          "pump"
+        ],
+        "score": 0.726,
+        "snippet": "A centrifugal pump shows a repeating chain of alarms: Low Suction Pressure, followed within 1 to 10 minutes by High Vibration, followed by High Bearing Temperature. The chain recurs every few days and each alarm clears on its own."
+      },
+      {
+        "ref": "[D3]",
+        "doc_id": "SOP-PUMP-004",
+        "title": "Boiler Feed Pump Alarm Response and Troubleshooting Procedure",
+        "section": "7. Recurring Alarm Pattern: Cavitation Sequence",
+        "chunk_id": "SOP-PUMP-004#007",
+        "doc_type": "operating_procedure",
+        "source_path": "SOP-PUMP-004_boiler_feed_pump_alarm_response.md",
+        "version": "3.2",
+        "asset_types": [
+          "pump"
+        ],
+        "score": 0.705,
+        "snippet": "When the sequence Low Suction Pressure -> High Vibration -> High Bearing Temperature repeats on the same pump within days, the pump is suffering repeated cavitation. Operators must not simply acknowledge the alarms. The shift supervisor shall raise an incident ticket including the alarm history, the suction..."
+      },
+      {
+        "ref": "[D4]",
+        "doc_id": "RN-2026",
+        "title": "Historical Ticket Resolution Notes Digest 2026",
+        "section": "BFP-101 cavitation and strainer blockage (INC-1001)",
+        "chunk_id": "RN-2026#001",
+        "doc_type": "resolution_notes",
+        "source_path": "RN-2026_resolution_notes_digest.json",
+        "version": "2026.10",
+        "asset_types": [
+          "compressor",
+          "pump"
+        ],
+        "score": 0.694,
+        "snippet": "Boiler Feed Pump 101 showed high vibration and bearing temperature following low suction pressure during load ramps. Root cause was a 60 percent blocked suction strainer. The strainer was cleaned and NPSH margin restored; vibration returned to 2.1 mm/s. Lesson: trend strainer differential pressure and clean..."
+      },
+      {
+        "ref": "[D5]",
+        "doc_id": "TG-MTR-007",
+        "title": "Electric Motor Overcurrent and Winding Temperature Troubleshooting",
+        "section": "Motor Overcurrent",
+        "chunk_id": "TG-MTR-007#001",
+        "doc_type": "troubleshooting_guide",
+        "source_path": "TG-MTR-007_motor_overcurrent_troubleshooting.md",
+        "version": "1.4",
+        "asset_types": [
+          "motor",
+          "pump",
+          "compressor"
+        ],
+        "score": 0.639,
+        "snippet": "A Motor Overcurrent alarm indicates current above 110% of full-load current for longer than the alarm delay.\n1. Compare motor current with the driven machine load. For compressor drives, check whether the driven compressor was surging at the time of the alarm; surge-induced current swings are not a motor fault.\n2...."
+      }
+    ]
+  },
+  {
+    "query": "what is on the cafeteria menu",
+    "filters": {},
+    "confidence": "low",
+    "warnings": [
+      "low retrieval confidence: documentation may not cover this question"
+    ],
+    "excluded_chunk_ids": [],
+    "hits": [
+      {
+        "chunk_id": "ESC-001#005",
+        "doc_id": "ESC-001",
+        "section": "Approval",
+        "score": 0.3645,
+        "bm25": 0.0,
+        "vector": 0.04,
+        "coverage": 0.0,
+        "boosts": {},
+        "metadata": {
+          "doc_type": "escalation_procedure",
+          "version": "4.0",
+          "asset_types": [
+            "pump",
+            "compressor",
+            "motor",
+            "turbine",
+            "vessel",
+            "heat_exchanger",
+            "skid",
+            "control_system"
+          ],
+          "alarm_names": [],
+          "trust": "verified",
+          "source_path": "ESC-001_incident_escalation_procedure.md"
+        }
+      },
+      {
+        "chunk_id": "ESC-001#004",
+        "doc_id": "ESC-001",
+        "section": "Assignment Groups",
+        "score": 0.3537,
+        "bm25": 0.0,
+        "vector": -0.008,
+        "coverage": 0.0,
+        "boosts": {},
+        "metadata": {
+          "doc_type": "escalation_procedure",
+          "version": "4.0",
+          "asset_types": [
+            "pump",
+            "compressor",
+            "motor",
+            "turbine",
+            "vessel",
+            "heat_exchanger",
+            "skid",
+            "control_system"
+          ],
+          "alarm_names": [],
+          "trust": "verified",
+          "source_path": "ESC-001_incident_escalation_procedure.md"
+        }
+      },
+      {
+        "chunk_id": "ALM-PHIL-001#001",
+        "doc_id": "ALM-PHIL-001",
+        "section": "Alarm Priorities",
+        "score": 0.3506,
+        "bm25": 0.0,
+        "vector": -0.036,
+        "coverage": 0.0,
+        "boosts": {},
+        "metadata": {
+          "doc_type": "alarm_philosophy",
+          "version": "2.1",
+          "asset_types": [],
+          "alarm_names": [],
+          "trust": "verified",
+          "source_path": "ALM-PHIL-001_alarm_philosophy_excerpt.txt"
+        }
+      },
+      {
+        "chunk_id": "ALM-PHIL-001#003",
+        "doc_id": "ALM-PHIL-001",
+        "section": "Acknowledgement Performance",
+        "score": 0.3462,
+        "bm25": 0.0,
+        "vector": -0.036,
+        "coverage": 0.0,
+        "boosts": {},
+        "metadata": {
+          "doc_type": "alarm_philosophy",
+          "version": "2.1",
+          "asset_types": [],
+          "alarm_names": [],
+          "trust": "verified",
+          "source_path": "ALM-PHIL-001_alarm_philosophy_excerpt.txt"
+        }
+      },
+      {
+        "chunk_id": "KA-0057#003",
+        "doc_id": "KA-0057",
+        "section": "Known Failure Modes",
+        "score": 0.3379,
+        "bm25": 0.0,
+        "vector": -0.005,
+        "coverage": 0.0,
+        "boosts": {},
+        "metadata": {
+          "doc_type": "knowledge_article",
+          "version": "1.0",
+          "asset_types": [
+            "compressor"
+          ],
+          "alarm_names": [
+            "Surge Detected"
+          ],
+          "trust": "verified",
+          "source_path": "KA-0057_anti_surge_valve_stroke_test.md"
+        }
+      }
+    ],
+    "citations": [
+      {
+        "ref": "[D1]",
+        "doc_id": "ESC-001",
+        "title": "Alarm Incident Classification and Escalation Procedure",
+        "section": "Approval",
+        "chunk_id": "ESC-001#005",
+        "doc_type": "escalation_procedure",
+        "source_path": "ESC-001_incident_escalation_procedure.md",
+        "version": "4.0",
+        "asset_types": [
+          "pump",
+          "compressor",
+          "motor",
+          "turbine",
+          "vessel",
+          "heat_exchanger",
+          "skid",
+          "control_system"
+        ],
+        "score": 0.364,
+        "snippet": "Tickets prepared with assistance from automated tools must be reviewed and explicitly approved by a qualified operator or engineer before submission."
+      },
+      {
+        "ref": "[D2]",
+        "doc_id": "ESC-001",
+        "title": "Alarm Incident Classification and Escalation Procedure",
+        "section": "Assignment Groups",
+        "chunk_id": "ESC-001#004",
+        "doc_type": "escalation_procedure",
+        "source_path": "ESC-001_incident_escalation_procedure.md",
+        "version": "4.0",
+        "asset_types": [
+          "pump",
+          "compressor",
+          "motor",
+          "turbine",
+          "vessel",
+          "heat_exchanger",
+          "skid",
+          "control_system"
+        ],
+        "score": 0.354,
+        "snippet": "Pumps, compressors and turbines: Rotating Equipment. Motors and electrical: Electrical Maintenance. Instrumentation and control systems: Instrumentation. Vessels and heat exchangers: Reliability."
+      },
+      {
+        "ref": "[D3]",
+        "doc_id": "ALM-PHIL-001",
+        "title": "Site Alarm Philosophy (Excerpt)",
+        "section": "Alarm Priorities",
+        "chunk_id": "ALM-PHIL-001#001",
+        "doc_type": "alarm_philosophy",
+        "source_path": "ALM-PHIL-001_alarm_philosophy_excerpt.txt",
+        "version": "2.1",
+        "asset_types": [],
+        "score": 0.351,
+        "snippet": "Alarm priority is determined by the severity of consequence and the time available for the operator to respond. Critical alarms require response within 2 minutes; high within 5 minutes; medium within 15 minutes; low within 30 minutes. Priority 1 corresponds to critical severity."
+      },
+      {
+        "ref": "[D4]",
+        "doc_id": "ALM-PHIL-001",
+        "title": "Site Alarm Philosophy (Excerpt)",
+        "section": "Acknowledgement Performance",
+        "chunk_id": "ALM-PHIL-001#003",
+        "doc_type": "alarm_philosophy",
+        "source_path": "ALM-PHIL-001_alarm_philosophy_excerpt.txt",
+        "version": "2.1",
+        "asset_types": [],
+        "score": 0.346,
+        "snippet": "The target is that 90% of alarms are acknowledged within 5 minutes. Average acknowledgement delays above 10 minutes for high-priority alarms on a unit must be reviewed by the operations superintendent."
+      },
+      {
+        "ref": "[D5]",
+        "doc_id": "KA-0057",
+        "title": "Knowledge Article: Anti-Surge Valve Stroke Test",
+        "section": "Known Failure Modes",
+        "chunk_id": "KA-0057#003",
+        "doc_type": "knowledge_article",
+        "source_path": "KA-0057_anti_surge_valve_stroke_test.md",
+        "version": "1.0",
+        "asset_types": [
+          "compressor"
+        ],
+        "score": 0.338,
+        "snippet": "- Solenoid valve sluggish (replaced on UV-501 in February 2026; stroke time fell from 9 s to 1.8 s).\n- Air supply pressure low to the actuator.\n- Positioner calibration drift."
+      }
+    ]
+  }
+]
