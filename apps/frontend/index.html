@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Incident Copilot</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="static/config.js"></script>
+  <script src="static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">◆</span>
+      <div>
+        <h1>Incident &amp; Ticket Enrichment Copilot</h1>
+        <p class="sub">Alarm data via MCP · Procedures via RAG · Human-approved ticket writes</p>
+      </div>
+    </div>
+    <div class="status" id="server-status" aria-live="polite"><span class="pill muted">checking…</span></div>
+  </header>
+
+  <main class="layout">
+    <section class="chat" aria-label="Chat">
+      <div class="messages" id="messages">
+        <div class="empty" id="chat-empty">
+          <h2>What should we look at?</h2>
+          <p>Ask about alarms, assets or procedures. The copilot discovers MCP tools, chains them, retrieves documents and drafts a ticket for your approval.</p>
+          <div class="chips" id="sample-prompts"></div>
+        </div>
+      </div>
+      <form class="composer" id="composer" autocomplete="off">
+        <textarea id="input" rows="2" maxlength="4000" placeholder="e.g. Prepare an incident for the highest-priority active alarm in EastRefinery" aria-label="Message"></textarea>
+        <button type="submit" id="send" class="btn primary">Send</button>
+      </form>
+      <div class="followups chips" id="followups"></div>
+    </section>
+
+    <aside class="panel" aria-label="Details">
+      <nav class="tabs" role="tablist">
+        <button role="tab" data-tab="draft" class="active">Ticket draft</button>
+        <button role="tab" data-tab="similar">Similar tickets <span class="count" id="cnt-similar"></span></button>
+        <button role="tab" data-tab="citations">Citations <span class="count" id="cnt-citations"></span></button>
+        <button role="tab" data-tab="trace">MCP trace <span class="count" id="cnt-trace"></span></button>
+        <button role="tab" data-tab="tools">Tools</button>
+        <button role="tab" data-tab="audit">Audit</button>
+      </nav>
+
+      <div class="tabpanel active" id="tab-draft">
+        <div class="empty small" id="draft-empty">No draft yet. Ask the copilot to <em>prepare an incident</em>.</div>
+        <form id="draft-form" class="draft hidden">
+          <div class="draft-head">
+            <span id="draft-id" class="mono"></span>
+            <span id="draft-status" class="pill"></span>
+          </div>
+          <label>Title <input name="title" maxlength="200" required></label>
+          <div class="row">
+            <label>Priority
+              <select name="priority"><option>P1</option><option>P2</option><option>P3</option><option>P4</option></select>
+            </label>
+            <label>Assignee group <input name="assignee_group" maxlength="80"></label>
+          </div>
+          <div class="row">
+            <label>Asset <input name="asset_name" readonly></label>
+            <label>Alarm <input name="alarm_name" readonly></label>
+          </div>
+          <label>Description <textarea name="description" rows="14" maxlength="20000" required></textarea></label>
+          <label>Tags (comma separated) <input name="tags" maxlength="400"></label>
+          <div class="linked">
+            <div><strong>Linked documents</strong><ul id="draft-docs"></ul></div>
+            <div><strong>Similar tickets</strong><ul id="draft-similar"></ul></div>
+          </div>
+          <div id="draft-conflicts"></div>
+          <div class="actions">
+            <button type="button" class="btn" id="draft-save">Save edits</button>
+            <button type="button" class="btn danger-outline" id="draft-reject">Reject</button>
+            <button type="button" class="btn primary" id="draft-approve">Approve &amp; create ticket…</button>
+          </div>
+          <div id="draft-result"></div>
+        </form>
+      </div>
+
+      <div class="tabpanel" id="tab-similar"><div class="empty small">Similar historical tickets and open tickets on correlated assets appear here.</div></div>
+      <div class="tabpanel" id="tab-citations"><div class="empty small">Document sources used in the answer appear here.</div></div>
+      <div class="tabpanel" id="tab-trace"><div class="empty small">The plan, every MCP tool call and every retrieval for the last answer appear here.</div></div>
+      <div class="tabpanel" id="tab-tools"><div class="empty small">Loading tool catalog…</div></div>
+      <div class="tabpanel" id="tab-audit"><div class="empty small">Audit events for this conversation appear here.</div></div>
+    </aside>
+  </main>
+
+  <dialog id="confirm-dialog">
+    <form method="dialog" id="confirm-form">
+      <h3>Confirm ticket creation</h3>
+      <p>This will <strong>write</strong> a new ticket to the ticketing system through the ticketing MCP server. Check the draft before continuing.</p>
+      <div id="confirm-summary" class="confirm-summary"></div>
+      <label>Your name <input id="confirm-name" required maxlength="120" placeholder="e.g. j.smith"></label>
+      <label class="check"><input type="checkbox" id="confirm-check" required> I have reviewed this draft and approve its creation.</label>
+      <div class="actions">
+        <button value="cancel" class="btn" formnovalidate>Cancel</button>
+        <button value="confirm" class="btn primary" id="confirm-go">Create ticket</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
