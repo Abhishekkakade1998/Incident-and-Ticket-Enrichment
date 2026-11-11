@@ -1,0 +1,10 @@
+# Runtime dependencies (pinned; mirrors [project.dependencies] in pyproject.toml)
+fastapi==0.162.4
+uvicorn==0.54.0
+httpx==0.28.1
+pydantic==2.14.3
+pydantic-settings==2.16.2
+mcp==1.30.0
+jsonschema==4.26.0
+# Optional LLM provider (LLM_PROVIDER=anthropic)
+anthropic==2.8.0

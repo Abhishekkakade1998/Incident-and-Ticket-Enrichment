@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+.env
+data/
+rag/index/
+*.sqlite3
+.DS_Store
+docs/coverage/html/
