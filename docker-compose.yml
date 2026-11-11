@@ -1,0 +1,107 @@
+# docker compose up --build    ->  GUI at http://localhost:8080
+#
+# Dependency order (enforced with health checks):
+#   alarm-api, ticketing-api  ->  alarm-mcp, ticketing-mcp  ->  rag-ingest (one-shot)  ->  copilot-backend  ->  gui
+x-python: &python
+  build: { context: ., dockerfile: Dockerfile }
+  image: incident-copilot:latest
+  env_file: [.env]
+  restart: unless-stopped
+
+x-health: &health
+  interval: 5s
+  timeout: 3s
+  retries: 20
+  start_period: 5s
+
+services:
+  alarm-api:
+    <<: *python
+    command: ["python", "-m", "uvicorn", "simulators.alarm_api_sim.app:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports: ["8000:8000"]
+    healthcheck:
+      <<: *health
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+
+  ticketing-api:
+    <<: *python
+    command: ["python", "-m", "uvicorn", "simulators.ticketing_api_sim.app:app", "--host", "0.0.0.0", "--port", "8100"]
+    ports: ["8100:8100"]
+    healthcheck:
+      <<: *health
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8100/health')"]
+
+  alarm-mcp:
+    <<: *python
+    command: ["python", "-m", "alarm_mcp"]
+    environment:
+      ALARM_API_BASE_URL: http://alarm-api:8000
+      ALARM_MCP_HOST: 0.0.0.0
+      ALARM_MCP_PORT: "9001"
+    ports: ["9001:9001"]
+    depends_on: { alarm-api: { condition: service_healthy } }
+    healthcheck:
+      <<: *health
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9001/health')"]
+
+  ticketing-mcp:
+    <<: *python
+    command: ["python", "-m", "ticketing_mcp"]
+    environment:
+      TICKETING_API_URL: http://ticketing-api:8100
+      TICKETING_MCP_HOST: 0.0.0.0
+      TICKETING_MCP_PORT: "9002"
+    ports: ["9002:9002"]
+    depends_on: { ticketing-api: { condition: service_healthy } }
+    healthcheck:
+      <<: *health
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9002/health')"]
+
+  rag-ingest:
+    <<: *python
+    restart: "no"
+    command: ["python", "-m", "rag.ingestion.ingest", "--docs", "/app/rag/documents", "--index", "/app/rag/index/index.json"]
+    volumes:
+      - rag-index:/app/rag/index
+      - ./rag/documents:/app/rag/documents:ro
+
+  copilot-backend:
+    <<: *python
+    command: ["python", "-m", "copilot"]
+    environment:
+      COPILOT_HOST: 0.0.0.0
+      COPILOT_PORT: "8080"
+      ALARM_MCP_URL: http://alarm-mcp:9001/mcp
+      TICKETING_MCP_URL: http://ticketing-mcp:9002/mcp
+      RAG_INDEX_PATH: /app/rag/index/index.json
+      DOCUMENT_PATH: /app/rag/documents
+      AUDIT_DB_PATH: /app/data/audit.sqlite3
+    volumes:
+      - rag-index:/app/rag/index
+      - ./rag/documents:/app/rag/documents:ro
+      - copilot-data:/app/data
+    ports: ["8081:8080"]
+    depends_on:
+      alarm-mcp: { condition: service_healthy }
+      ticketing-mcp: { condition: service_healthy }
+      rag-ingest: { condition: service_completed_successfully }
+    healthcheck:
+      <<: *health
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/ready')"]
+
+  gui:
+    build: { context: ., dockerfile: apps/frontend/Dockerfile }
+    environment:
+      COPILOT_BACKEND_URL: http://copilot-backend:8080
+      GUI_API_BASE_URL: ""
+      GUI_DEFAULT_USER: operator
+    ports: ["8080:80"]
+    depends_on: { copilot-backend: { condition: service_healthy } }
+    healthcheck:
+      <<: *health
+      test: ["CMD", "wget", "-qO-", "http://localhost/healthz"]
+    restart: unless-stopped
+
+volumes:
+  rag-index:
+  copilot-data:
