@@ -6,7 +6,7 @@
 
 When a high-priority alarm fires, the copilot finds and ranks it, enriches it with asset context, correlations, recommended actions, similar historical tickets and the applicable procedure, then drafts an incident ticket. The operator edits the draft and explicitly approves it. All alarm and ticket data flows through **two candidate-developed MCP servers**. Procedures and knowledge come from a **document RAG pipeline** in the same workflow. Every statement in an answer is cited to a tool call `[T#]`, a document chunk `[D#]` or a ticket `[INC-#]`.
 
-> **Demo video (up to 10 min):** _add link here_ · Script: [`docs/demo-script.md`](docs/demo-script.md) · Screenshots: [`docs/screenshots/`](docs/screenshots)
+> **Demo video (up to 10 min):** _add link here_ · Script: [`docs/demo-script.md`](docs/demo-script.md) · Screenshots: [`docs/screenshots/`](docs/screenshots) · How it was built: [`docs/how-it-was-built.md`](docs/how-it-was-built.md)
 
 ![Incident draft](docs/screenshots/01-incident-draft.jpg)
 
