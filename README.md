@@ -177,3 +177,8 @@ Configuration is read from environment variables and `.env`; see [`.env.example`
 - This demo is not a substitute for operator procedures, safety systems, or production access controls.
 
 More detail is in [known limitations](docs/known-limitations.md), [design decisions](docs/design-decisions.md), and [how the project was built](docs/how-it-was-built.md).
+
+## Contributors
+
+- [Abhishekkakade1998](https://github.com/Abhishekkakade1998) - Project owner and developer.
+- [GitHub Copilot](https://github.com/features/copilot) - AI coding assistant.
